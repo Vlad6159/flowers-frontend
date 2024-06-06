@@ -1,0 +1,18 @@
+.button{
+    border: 2px solid lightpink;
+    background: white;
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.button:hover{
+    color:white;
+    background:lightpink;
+}
+
+.button:active{
+    border: 2px solid #ff7e90;
+    background: #ff7e90;
+    transform: scale(1);
+}
