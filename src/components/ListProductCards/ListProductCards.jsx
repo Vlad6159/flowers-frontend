@@ -6,7 +6,7 @@ const ListProductCards = ({products,categories}) => {
     return (
         <div className={classes.cardsList}>
             {products.map((product) =>
-                <ProductCard key={product.id} product={product} categories={categories} ></ProductCard>
+                <ProductCard key={product.id} product={product} categories={categories}/>
             )}
         </div>
     );

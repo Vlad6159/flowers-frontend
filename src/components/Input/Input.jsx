@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from "*.module.css";
+import classes from "./Input.module.css";
 
 const Input = ({type,name,placeholder}) => {
     return (
-        <input className={classes} type={type} name={name} placeholder={placeholder}/>
+        <input className={classes.input} type={type} name={name} placeholder={placeholder}/>
     );
 };
 

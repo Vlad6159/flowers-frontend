@@ -6,11 +6,23 @@ import MyButton from "@/components/MyButton/MyButton";
 import Modal from "@/components/Modal/Modal";
 import {useState} from "react";
 import NavButton from "@/components/NavButton/NavButton";
+import Input from "@/components/Input/Input";
+import {InputMask} from "@react-input/mask";
+import axios from "axios";
+import {metadata} from "@/pages/_app";
 
 
 const Header = () => {
 
     const [modalActive, setModalActive] = useState(false);
+    const [buttonSubmit, setbuttonSubmit] = useState(true);
+
+    async function createOrUpdateUserVerifyCode() {
+        const data = {
+            tel: document.querySelector('.input__mask').value
+        }
+        const response = await axios.post(metadata.url + '/user/code',data)
+    }
 
     return (
         <header className={classes.header}>
@@ -31,9 +43,12 @@ const Header = () => {
                         <img src="/profile.png" className={classes.header__nav__item__img} alt="Профиль"/>
                     </NavButton>
                     <Modal modalActive={modalActive} setModalActive={setModalActive}>
-                        <input type="tel" name='tel'/>
-                        <MyButton>
-                            Отправить код
+                        <h2 className={'modal__h2'}>Авторизация/Регистрация</h2>
+                        <InputMask className={'input__mask'} mask="+7 (___) ___-__-__" name={'tel'} replacement={{ _: /\d/ }} placeholder={'+7 (___) ___-__-__'}/>
+                        <MyButton onClick={() => {createOrUpdateUserVerifyCode().then((response) => {
+                            setModalActive(false);
+                        })}}>
+                            {buttonSubmit ? 'Отправить код' : 'Проверить код'}
                         </MyButton>
                     </Modal>
                 </div>

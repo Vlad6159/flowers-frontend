@@ -6,9 +6,10 @@
     align-items: center;
     margin-top: 15px;
     overflow: hidden;
+    width: 270px;
 }
 .card__img{
-    width: 250px;
+    width: 270px;
     height: auto;
 }
 .card__body{
@@ -24,7 +25,8 @@
 .card__row{
     display: flex;
     flex-flow: row;
-    gap: 5px;
+    margin-top: 10px;
+    gap: 10px;
 }
 .card__row__img{
     width: 20px;

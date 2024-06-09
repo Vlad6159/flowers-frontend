@@ -3,11 +3,11 @@ import axios from "axios";
 import ListProductCards from "@/components/ListProductCards/ListProductCards";
 
 export async function getStaticProps() {
-        const response = await axios.get('http://localhost/api/data');
+        const response = await axios.get('http://w98325ou.beget.tech/api/data');
         return {
             props: {
-                products: response.data.data.products,
-                categories: response.data.data.categories,
+                products: response.data.products,
+                categories: response.data.categories,
             }
         };
 }

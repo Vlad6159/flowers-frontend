@@ -15,3 +15,16 @@ a {
     display: flex;
     justify-content: center;
 }
+.input__mask{
+    border: 2px solid lightpink;
+    background: white;
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.input__mask:active{
+    border: 2px solid lightpink;
+}
+.modal__h2{
+    margin-bottom: 15px;
+}

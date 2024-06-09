@@ -2,8 +2,10 @@ import '../../public/styles/global.css'
 import Head from "next/head";
 import Header from "@/components/header/Header";
 
+
 export const metadata = {
     title: 'Радуга цветов',
+    url: 'http://w98325ou.beget.tech/api'
 }
 
 export default function MyApp({ Component, pageProps }) {
