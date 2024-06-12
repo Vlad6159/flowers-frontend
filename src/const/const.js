@@ -1,0 +1,1 @@
+export const backendUrl ="http://w98325ou.beget.tech/api"

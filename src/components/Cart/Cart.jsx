@@ -1,8 +1,9 @@
+'use client'
 import { useContext } from "react";
 import Context from "@/context/Context";
 import classes from './Cart.module.css';
 import MyButton from "@/components/MyButton/MyButton";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import CartItems from "@/components/CartItems/CartItems";
 
 const Cart = () => {

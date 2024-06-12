@@ -1,26 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import ListProductCards from "@/components/ListProductCards/ListProductCards";
-import axios from "axios";
+import {backendUrl} from "@/const/const";
 
-export const metadata = {
-  title: "Радуга цветов",
-  url: "http://w98325ou.beget.tech/api",
-};
 
-export async function getStaticProps() {
-  const response = await axios.get(metadata.url + "/data");
-  return {
-    props: {
-      products: response.data.products,
-    },
-  };
-}
-const Index = ({ products }) => {
+
+const Page =async () => {
+  const products = await fetch(backendUrl + "/data")
+  const json = await products.json();
   return (
     <>
-      <ListProductCards products={products} />
+      <ListProductCards products={json.products} />
     </>
   );
 };
 
-export default Index;
+export default Page;

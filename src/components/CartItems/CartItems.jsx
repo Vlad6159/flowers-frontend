@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import useProductCart from "@/hooks/useProductCart";
 import classes from './CartItems.module.css';

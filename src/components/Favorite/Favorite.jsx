@@ -1,3 +1,4 @@
+'use client'
 import { useContext } from "react";
 import Context from "@/context/Context";
 import classes from './Favorite.module.css';

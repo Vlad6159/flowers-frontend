@@ -9,13 +9,13 @@ import NavButton from "@/components/NavButton/NavButton";
 import Input from "@/components/Input/Input";
 import { InputMask } from "@react-input/mask";
 import axios from "axios";
-import { metadata } from "@/app/layout";
 import Label from "@/components/Label/Label";
 import ModalDiv from "@/components/ModalDiv/ModalDiv";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Cart from "@/components/Cart/Cart";
 import Favorite from "@/components/Favorite/Favorite";
 import Context from "@/context/Context";
+import {backendUrl} from "@/const/const";
 
 const Header = () => {
   const router = useRouter();
@@ -32,9 +32,9 @@ const Header = () => {
         tel: document.querySelector(".input__mask").value,
       };
       console.log("Отправка данных на сервер:", data);
-      console.log("URL:", metadata.url + "/user/code");
+      console.log("URL:", backendUrl + "/user/code");
 
-      const response = await axios.post(metadata.url + "/user/code", data);
+      const response = await axios.post(backendUrl, + "/user/code", data);
       console.log("Ответ от сервера:", response);
       setButtonSubmit(false);
       return response;

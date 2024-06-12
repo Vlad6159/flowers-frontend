@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import classes from './FavoriteItems.module.css';
 import useProductFavorite from "@/hooks/useProductFavorite";

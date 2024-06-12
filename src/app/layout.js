@@ -1,22 +1,23 @@
-import "./my-app/public/styles/global.css";
-import Head from "next/head";
-import Header from "@/components/header/Header";
+import "../../public/styles/global.css"
 import { Provider } from "@/context/Context";
-import { metadata } from "@/app/page";
+import Header from "@/components/header/Header";
+export async function generateMetadata({ params }) {
+    return {
+        title: "Радуга цветов",
+    }
+}
 
-export default function Layout({ Component, pageProps }) {
+export default function Layout({children}) {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <link rel="icon" href="/logo.png" type="image/png" />
-      </Head>
+    <html>
+    <body>
       <Provider>
         <Header />
         <div className="container__content">
-          <Component {...pageProps} />
+            {children}
         </div>
       </Provider>
-    </>
+    </body>
+    </html>
   );
 }

@@ -1,3 +1,4 @@
+'use client'
 import classes from './ProductCart.module.css'
 import MyButton from "@/components/MyButton/MyButton";
 import useProductCart from "@/hooks/useProductCart";
