@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Favorite = () => {
+const Order = () => {
     return (
         <div>
-            
+            order
         </div>
     );
 };
 
-export default Favorite;
+export default Order;

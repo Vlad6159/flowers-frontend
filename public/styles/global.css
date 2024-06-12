@@ -26,5 +26,6 @@ a {
     border: 2px solid lightpink;
 }
 .modal__h2{
+    margin-top: 5px;
     margin-bottom: 15px;
 }

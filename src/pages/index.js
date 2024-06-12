@@ -1,20 +1,21 @@
 import React, {useState} from 'react';
-import axios from "axios";
 import ListProductCards from "@/components/ListProductCards/ListProductCards";
+import axios from "axios";
+import {metadata} from "@/pages/_app";
+import {CartProvider} from "@/context/CartContext";
 
 export async function getStaticProps() {
-        const response = await axios.get('http://w98325ou.beget.tech/api/data');
+        const response = await axios.get(metadata.url + '/data');
         return {
             props: {
-                products: response.data.products,
-                categories: response.data.categories,
+                products: response.data.products
             }
         };
 }
-const Index = ({products, categories}) => {
+const Index = ({products}) => {
     return (
         <>
-            <ListProductCards products={products} categories={categories} />
+            <ListProductCards products={products}/>
         </>
     );
 };
