@@ -1,0 +1,13 @@
+.cart__items{
+    display: flex;
+    flex-flow: row;
+    gap: 5px;
+}
+.cart__items__div{
+    cursor: pointer;
+}
+.cart__items__div > p{
+    transition: 0.3s;
+}.cart__items__div > p:hover{
+    color: lightpink;
+}

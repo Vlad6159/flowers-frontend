@@ -1,0 +1,14 @@
+.favorite__items{
+    display: flex;
+    flex-flow: row;
+    gap: 5px;
+}
+.favorite__items__div{
+    cursor: pointer;
+}
+.favorite__items__div > p{
+    transition: 0.3s;
+}
+.favorite__items__div > p:hover{
+     color: lightpink;
+ }

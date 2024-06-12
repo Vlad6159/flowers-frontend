@@ -1,14 +1,8 @@
 import {useState, useEffect, useContext} from 'react';
-import CartContext from "@/context/CartContext";
+import Context from "@/context/Context";
 
 const useProductCart = (product) => {
-    const [cartProduct, setCartProduct] = useState(false);
-    const {cartItems,setCartItems} = useContext(CartContext)
-
-    useEffect(() => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || '{}';
-    }, [cartProduct]);
-
+    const {cartItems,setCartItems} = useContext(Context)
 
     const addProductToCart = (product) => {
         let initialCart = JSON.parse(localStorage.getItem('cart') || '{}');
@@ -25,7 +19,7 @@ const useProductCart = (product) => {
         localStorage.setItem('cart', JSON.stringify(initialCart));
     };
 
-    return { cartProduct, addProductToCart, removeProductFromCart };
+    return { addProductToCart, removeProductFromCart };
 };
 
 export default useProductCart;

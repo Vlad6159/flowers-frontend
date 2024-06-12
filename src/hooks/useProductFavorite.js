@@ -1,49 +1,23 @@
 import {useContext, useEffect, useState} from 'react';
-import CartContext from "@/context/CartContext";
+import Context from "@/context/Context";
 
 const useProductFavorite = (product) => {
-    const [favoriteProduct, setFavoriteProduct] = useState(false);
-    const {favoriteItems,setFavoriteItems} = useContext(CartContext)
+    const {favoriteItems,setFavoriteItems} = useContext(Context)
 
-    useEffect(() => {
-        const favorite = JSON.parse(localStorage.getItem('favorite')) || [];
-        console.log('Current favorite:', favorite);
-    }, [favoriteProduct]);
-    useEffect(() => {
-        const favorite = JSON.parse(localStorage.getItem('favorite')) || [];
-        const productInFavorite = favorite.find(item => item.id === product.id);
-        if (productInFavorite) {
-            setFavoriteProduct(true);
-        } else {
-            setFavoriteProduct(false);
-        }
-    }, [product.id]);
     function addProductToFavorite(product) {
-        let favorite = localStorage.getItem('favorite');
-
-        if (favorite) {
-            favorite = JSON.parse(favorite);
-            favorite.push(product);
-        } else {
-            favorite = [product];
-        }
+        let initialFavorite = JSON.parse(localStorage.getItem('favorite') || '{}');
+        const favorite = {...initialFavorite,[product.id]: product};
         setFavoriteItems(favorite)
-        setFavoriteProduct(true);
         localStorage.setItem('favorite', JSON.stringify(favorite));
     }
     function removeProductFromFavorite(productId){
-        let favorite = localStorage.getItem('favorite');
-
-        if (favorite) {
-            favorite = JSON.parse(favorite);
-            favorite = favorite.filter(item => item.id !== productId);
-            setFavoriteProduct(false);
-            setFavoriteItems(favorite)
-            localStorage.setItem('favorite', JSON.stringify(favorite));
-        }
+        let initialFavorite = JSON.parse(localStorage.getItem('favorite') || '{}');
+        delete initialFavorite[productId];
+        setFavoriteItems(initialFavorite)
+        localStorage.setItem('favorite', JSON.stringify(initialFavorite));
     }
 
-    return { favoriteProduct, addProductToFavorite, removeProductFromFavorite };
+    return {addProductToFavorite, removeProductFromFavorite };
 };
 
 export default useProductFavorite;
