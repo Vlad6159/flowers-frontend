@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 import Cart from "@/components/Cart/Cart";
 import Favorite from "@/components/Favorite/Favorite";
 import Context from "@/context/Context";
-import {backendUrl} from "@/const/const";
+import { backendUrl } from "@/const/const";
 
 const Header = () => {
   const router = useRouter();
@@ -34,7 +34,7 @@ const Header = () => {
       console.log("Отправка данных на сервер:", data);
       console.log("URL:", backendUrl + "/user/code");
 
-      const response = await axios.post(backendUrl, + "/user/code", data);
+      const response = await axios.post(backendUrl + "/user/code", data);
       console.log("Ответ от сервера:", response);
       setButtonSubmit(false);
       return response;
@@ -62,10 +62,7 @@ const Header = () => {
     };
 
     try {
-      const response = await axios.post(
-        metadata.url + "/user/code/check",
-        data,
-      );
+      const response = await axios.post(backendUrl + "/user/code/check", data);
       console.log("Response data:", response.data);
       return response;
     } catch (error) {
@@ -169,7 +166,14 @@ const Header = () => {
                 <ModalDiv>
                   <Label forLabel={"code"}>Код</Label>
                   <Input id={"code"} name={"code"} />
-                  <span>Отправить код заново</span>
+                  <span
+                    style={{ cursor: "pointer", fontSize: "14px" }}
+                    onClick={() => {
+                      createOrUpdateUserVerifyCode();
+                    }}
+                  >
+                    Отправить код заново
+                  </span>
                 </ModalDiv>
               ) : (
                 ""

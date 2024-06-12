@@ -1,0 +1,13 @@
+.profile{
+    text-align: center;
+}
+.profile__div{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile__div__label{
+    width: 100%;
+    height: 100%;
+}
