@@ -6,44 +6,23 @@ const useProductCart = (product) => {
     const {cartItems,setCartItems} = useContext(CartContext)
 
     useEffect(() => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        console.log('Current cart:', cart);
+        const cart = JSON.parse(localStorage.getItem('cart')) || '{}';
     }, [cartProduct]);
 
-    useEffect(() => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const productInCart = cart.find(item => item.id === product.id);
-        if (productInCart) {
-            setCartProduct(true);
-        } else {
-            setCartProduct(false);
-        }
-    }, [cartProduct,product.id]);
 
     const addProductToCart = (product) => {
-        let cart = localStorage.getItem('cart');
+        let initialCart = JSON.parse(localStorage.getItem('cart') || '{}');
+        const cart = {...initialCart,[product.id]: product};
 
-        if (cart) {
-            cart = JSON.parse(cart);
-            cart.push(product);
-        } else {
-            cart = [product];
-        }
         setCartItems(cart)
-        setCartProduct(true);
         localStorage.setItem('cart', JSON.stringify(cart));
     };
 
     const removeProductFromCart = (productId) => {
-        let cart = localStorage.getItem('cart');
-
-        if (cart) {
-            cart = JSON.parse(cart);
-            cart = cart.filter(item => item.id !== productId);
-            setCartProduct(false);
-            setCartItems(cart)
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+        const initialCart = JSON.parse(localStorage.getItem('cart') || '{}');
+        delete initialCart[productId];
+        setCartItems(initialCart)
+        localStorage.setItem('cart', JSON.stringify(initialCart));
     };
 
     return { cartProduct, addProductToCart, removeProductFromCart };

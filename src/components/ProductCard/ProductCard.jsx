@@ -2,18 +2,15 @@ import classes from './ProductCart.module.css'
 import MyButton from "@/components/MyButton/MyButton";
 import useProductCart from "@/hooks/useProductCart";
 import useProductFavorite from "@/hooks/useProductFavorite";
-import {useEffect} from "react";
+import {useContext, useEffect} from "react";
+import cartContext from "@/context/CartContext";
 
 const ProductCard = ({product}) => {
 
     const {cartProduct, addProductToCart, removeProductFromCart } = useProductCart(product);
     const {favoriteProduct, addProductToFavorite, removeProductFromFavorite} = useProductFavorite(product);
-    useEffect(() => {
-
-    }, [cartProduct]);
-    useEffect(() => {
-
-    }, [favoriteProduct]);
+    const  {cartItems} = useContext(cartContext)
+    console.log(cartItems)
 
     return (
         <div className={classes.card}>
@@ -25,7 +22,7 @@ const ProductCard = ({product}) => {
                     <MyButton onClick={favoriteProduct ? () => removeProductFromFavorite(product.id)  : () => addProductToFavorite(product)}>
                         <img className={classes.card__row__img} src={favoriteProduct ? "/heart.png" : "/favorites.png"} alt="Избранное"/>
                     </MyButton>
-                    <MyButton  onClick={cartProduct ? () => removeProductFromCart(product.id)  : () => addProductToCart(product)}>{cartProduct ? 'Удалить из корзины' : 'Добавить в корзину'}</MyButton>
+                    <MyButton  onClick={cartItems[product.id] ? () => removeProductFromCart(product.id)  : () => addProductToCart(product)}>{cartItems[product.id] ? 'Удалить из корзины' : 'Добавить в корзину'}</MyButton>
                 </div>
             </div>
         </div>

@@ -8,16 +8,17 @@ import CartItems from "@/components/CartItems/CartItems";
 const Cart = () => {
     const { cartItems } = useContext(CartContext);
     const router = useRouter();
-
+    const cartItemsList = Object.values(cartItems)
     return (
         <div className={classes.cart}>
             <h1>Корзина</h1>
             <hr style={{ width: '100%' }} />
-            {cartItems.length !== 0 ? (
+            {cartItemsList.length !== 0 ? (
                 <div className={classes.cart__div}>
-                    {cartItems.map((product) => (
-                        <CartItems key={product.id} product={product}/>
-                    ))}
+                    {cartItemsList.map((product) => {
+                        console.log(product)
+                        return <CartItems key={product.id} product={product}/>
+                    })}
                     <MyButton onClick={() => { router.push('/profile/order') }}>Оформить заказ</MyButton>
                 </div>
             ) : (
