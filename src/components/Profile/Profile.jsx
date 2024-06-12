@@ -2,6 +2,7 @@ import React from "react";
 import Label from "@/components/Label/Label";
 import Input from "@/components/Input/Input";
 import classes from "./Profile.module.css";
+import MyButton from "@/components/MyButton/MyButton";
 
 const Profile = () => {
   return (
@@ -25,6 +26,9 @@ const Profile = () => {
           id={"name"}
           style={{ marginLeft: "5px" }}
         />
+      </div>
+      <div className={classes.profile__button}>
+        <MyButton>Изменить</MyButton>
       </div>
     </div>
   );

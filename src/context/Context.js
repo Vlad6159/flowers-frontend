@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, useState, useEffect } from "react";
+import { backendUrl } from "@/const/const";
 
 const Context = createContext();
 
@@ -18,10 +19,10 @@ export const Provider = ({ children }) => {
     setFavoriteItems(favorite);
   }, []);
 
-  function exitUser() {
-    setUserAuth(false);
-    localStorage.removeItem("token");
-  }
+  // export function exitUser() {
+  //   setUserAuth(false);
+  //   localStorage.removeItem("token");
+  // }
 
   return (
     <Context.Provider
@@ -32,7 +33,7 @@ export const Provider = ({ children }) => {
         setFavoriteItems,
         userAuth,
         setUserAuth,
-        exitUser,
+        // exitUser,
       }}
     >
       {children}

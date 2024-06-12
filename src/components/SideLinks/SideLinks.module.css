@@ -1,0 +1,19 @@
+.sideLinks{
+    display: flex;
+    position: absolute;
+    top: 100px;
+    left: 15%;
+    padding: 15px;
+}
+.sideLinks__div {
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+}
+
+.hr {
+    height: 140vh;
+    width: 1px;
+    background-color: lightpink;
+    border: none;
+}

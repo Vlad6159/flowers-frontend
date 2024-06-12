@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./ListProductCards.module.css";
 import ProductCard from "@/components/ProductCard/ProductCard";
+import Context from "@/context/Context";
 
 const ListProductCards = ({ products }) => {
   return (

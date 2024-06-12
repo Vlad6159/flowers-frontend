@@ -1,0 +1,35 @@
+.productDetails{
+margin-top: 100px;
+}
+.productDetails__div{
+    display: flex;
+    flex-flow: row;
+}
+.productDetails__div__img{
+    width: 400px;
+    height: auto;
+    border-radius: 25px;
+}
+.productDetails__div__div{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    flex-flow: column;
+}
+.productDetails__div__div__p{
+    font-weight: 500;
+    font-size: 24px;
+}
+.productDetails__div__div__div{
+    display: flex;
+    flex-flow: row;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.productDetails__div__div__div__img{
+    width: 20px;
+    height: auto;
+    display: flex;
+    align-self: center;
+}
