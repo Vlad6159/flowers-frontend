@@ -1,6 +1,7 @@
 .cart__items{
     display: flex;
     flex-flow: row;
+    justify-content: space-between;
     gap: 5px;
 }
 .cart__items__div{
