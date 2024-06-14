@@ -1,7 +1,8 @@
 import React from "react";
 
 const Page = () => {
-  return <div>history order</div>;
+  return;
+  <div></div>;
 };
 
 export default Page;

@@ -9,10 +9,6 @@
     width: 270px;
     justify-content: space-between;
 }
-.card__img{
-    width: 270px;
-    height: auto;
-}
 .card__body{
     display: flex;
     align-items: center;

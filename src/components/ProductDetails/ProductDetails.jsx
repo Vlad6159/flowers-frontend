@@ -7,6 +7,7 @@ import Context from "@/context/Context";
 import useProductCart from "@/hooks/useProductCart";
 import useProductFavorite from "@/hooks/useProductFavorite";
 import cartContext from "@/context/Context";
+import Image from "next/image";
 
 const ProductDetails = ({ product }) => {
   const { cartProduct, addProductToCart, removeProductFromCart } =
@@ -17,10 +18,12 @@ const ProductDetails = ({ product }) => {
   return (
     <div className={classes.productDetails}>
       <div className={classes.productDetails__div}>
-        <img
+        <Image
           src={product.img}
-          className={classes.productDetails__div__img}
-          alt=""
+          width={400}
+          height={400}
+          alt="картинка"
+          style={{ borderRadius: "30px" }}
         />
         <div className={classes.productDetails__div__div}>
           <p className={classes.productDetails__div__div__p}>{product.name}</p>

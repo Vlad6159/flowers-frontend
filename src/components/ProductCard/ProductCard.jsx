@@ -6,6 +6,7 @@ import useProductFavorite from "@/hooks/useProductFavorite";
 import { useContext, useEffect } from "react";
 import cartContext from "@/context/Context";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const ProductCard = ({ product }) => {
   const router = useRouter();
@@ -20,15 +21,16 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className={classes.card}>
-      <img
-        className={classes.card__img}
+      <Image
         src={product.img}
         alt="картинка"
+        width={270}
+        height={270}
         style={{ cursor: "pointer" }}
         onClick={() => navigateToProductDetails(product.id)}
       />
       <div className={classes.card__body}>
-        <p className={classes.card__title}>{product.name}</p>
+        <p>{product.name}</p>
         <h3 style={{ fontWeight: "400" }}>{product.price} ₽</h3>
         <div className={classes.card__row}>
           <MyButton
