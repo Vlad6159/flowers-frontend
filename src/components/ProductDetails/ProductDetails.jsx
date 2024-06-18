@@ -36,8 +36,10 @@ const ProductDetails = ({ product }) => {
                   : () => addProductToFavorite(product)
               }
             >
-              <img
-                className={classes.productDetails__div__div__div__img}
+              <Image
+                width={20}
+                height={20}
+                style={{ display: "flex", alignSelf: "center" }}
                 src={
                   favoriteItems[product.id] ? "/heart.png" : "/favorites.png"
                 }
