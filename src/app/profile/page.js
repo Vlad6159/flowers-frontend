@@ -10,7 +10,7 @@ const Index = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${backendUrl}/auth/user`, {
+      const response = await fetch(`${backendUrl}/user`, {
         method: "GET",
         headers: {
           Authorization: `${token}`,

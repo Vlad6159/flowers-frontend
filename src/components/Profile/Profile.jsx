@@ -13,15 +13,11 @@ const Profile = ({ user }) => {
     name: user.name || "",
   });
   async function editUserData() {
-    const response = await axios.post(
-      `${backendUrl}/auth/user/update`,
-      userData,
-      {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
+    const response = await axios.post(`${backendUrl}/user/update`, userData, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
       },
-    );
+    });
     console.log(response?.data.message);
   }
   return (
