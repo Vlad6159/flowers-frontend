@@ -84,7 +84,11 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.header__row}>
         <MyLink href="/" className={classes.header__logoText}>
-          <img src="/logo.png" className={classes.header__logoText__logo} />
+          <img
+            src="/logo.png"
+            className={classes.header__logoText__logo}
+            alt={"картинка"}
+          />
           <p className={classes.header__logoText__text}>Радуга цветов</p>
         </MyLink>
         <div className={classes.header__nav}>
