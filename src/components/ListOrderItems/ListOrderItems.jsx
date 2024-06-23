@@ -30,7 +30,9 @@ const ListOrderItems = ({ products }) => {
       },
     });
     console.log(response);
+    localStorage.removeItem("cart");
   }
+
   return (
     <div>
       {products.length !== 0 ? (
