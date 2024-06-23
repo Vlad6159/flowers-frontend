@@ -1,0 +1,12 @@
+.order__item{
+    display: flex;
+    justify-content: center;
+    border: 1px solid lightpink;
+    border-radius: 15px;
+    padding: 15px;
+    gap: 25px;
+    transition: 1s;
+}
+.order__item:hover {
+    background-color: lightpink;
+}

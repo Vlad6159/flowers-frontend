@@ -137,15 +137,15 @@ const Header = () => {
           <div>
             <NavButton
               className={classes.header__nav__item}
-              onClick={
-                userAuth
-                  ? () => {
-                      router.push("/profile");
-                    }
-                  : () => {
-                      setModalActive(true);
-                    }
-              }
+              onClick={() => {
+                setShowCart(false);
+                setShowFavorite(false);
+                if (userAuth) {
+                  router.push("/profile");
+                } else {
+                  setModalActive(true);
+                }
+              }}
             >
               <img
                 src="/profile.png"

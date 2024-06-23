@@ -4,20 +4,19 @@ import classes from "./ListOrderItems.module.css";
 import MyButton from "@/components/MyButton/MyButton";
 import axios from "axios";
 import { backendUrl } from "@/const/const";
+import { useRouter } from "next/navigation";
+import useProductCart from "@/hooks/useProductCart";
 
 const ListOrderItems = ({ products }) => {
+  const router = useRouter();
+  const { setCartItems } = useProductCart();
   function calculateTotalPrice(products) {
     let totalPrice = 0;
-
-    // Перебираем все товары в корзине и суммируем их цены
     products.forEach((product) => {
       totalPrice += parseInt(product.price);
     });
-
-    // Возвращаем общую стоимость товаров
     return totalPrice;
   }
-
   const count = 0;
   async function makeOrder() {
     const data = {
@@ -29,8 +28,12 @@ const ListOrderItems = ({ products }) => {
         Authorization: localStorage.getItem("token"),
       },
     });
-    console.log(response);
-    localStorage.removeItem("cart");
+    if (response.status === 200) {
+      setCartItems(JSON.parse("{}"));
+      router.replace("/");
+    } else {
+      console.log(response.data.message);
+    }
   }
 
   return (

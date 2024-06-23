@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  return NextResponse.redirect(new URL("/", request.url));
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    return NextResponse.redirect("/");
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
