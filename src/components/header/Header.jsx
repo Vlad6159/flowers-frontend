@@ -132,7 +132,7 @@ const Header = () => {
                 alt="Корзина"
               />
             </NavButton>
-            {showCart ? <Cart /> : ""}
+            {showCart ? <Cart setShowCart={setShowCart} /> : ""}
           </div>
           <div>
             <NavButton

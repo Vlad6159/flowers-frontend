@@ -1,0 +1,14 @@
+.list__order__items{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    gap: 15px;
+    border: 1px solid lightpink;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 25px;
+}
+.list__order__items__title{
+    font-weight: 500;
+    font-size: 20px;
+}

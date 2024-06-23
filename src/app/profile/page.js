@@ -22,7 +22,13 @@ const Index = () => {
     fetchUser();
   }, []);
   if (!thisUser) {
-    return <div>Loading...</div>;
+    return (
+        <>
+          <H1>Профиль</H1>
+          <SideLinks></SideLinks>
+          <div>Loading...</div>
+        </>
+    );
   }
   return (
     <>

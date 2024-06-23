@@ -11,7 +11,8 @@ const SideLinks = () => {
     <>
       <div className={classes.sideLinks}>
         <div className={classes.sideLinks__div}>
-          <ProfileLink href={"/order/history"}>История заказов</ProfileLink>
+          <ProfileLink href={"/profile"}>Профиль</ProfileLink>
+          <ProfileLink href={"/profile/order/history"}>История заказов</ProfileLink>
           <ProfileLink
             href={"/"}
             onClick={() => {
